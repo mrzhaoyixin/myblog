@@ -1,0 +1,26 @@
+<!doctype html>
+  <title>舔 狗 日 记</title>
+  <!-- Meta tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content=""/>
+  <script>
+	 addEventListener("load", function () { setTimeout(hideURLbar, 0); }, false); function hideURLbar() { window.scrollTo(0, 1); }
+  </script>
+  <!-- Meta tags -->
+  <!--stylesheets-->
+  <!--link href="css/authstyle.css" rel='stylesheet' type='text/css' media="all"-->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/authstyle.css') }}">
+  <!--//style sheet end here-->
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+<nav>
+</nav>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% block content %}{% endblock %}
+  <footer class="bottem-wthree-footer">
+	 <p>Copyright &copy; 2019.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/"></a></p>
+  </footer>
+</section>

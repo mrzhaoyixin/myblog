@@ -1,17 +1,14 @@
-{% extends 'base.html' %}
-
+{% extends 'foxbase.html' %}
 {% block header %}
-  <h1>{% block title %}Posts{% endblock %}</h1>
-  {% if g.user %}
-    <a class="action" href="{{ url_for('blog.create') }}">New</a>
-  {% endif %}
+  <h1 style="font-size:40px" align="center">{% block title %}来条舔狗日记8{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
   {% for post in posts %}
-    <article class="post">
+  <div class="father"> 
+  <article class="post">
       <header>
-        <div>
+        <div class="child">
           <h1>{{ post['title'] }}</h1>
           <div class="about">by {{ post['username'] }} on {{ post['created'].strftime('%Y-%m-%d') }}</div>
         </div>
@@ -24,5 +21,10 @@
     {% if not loop.last %}
       <hr>
     {% endif %}
+  <div>
   {% endfor %}
+  {% if g.user %}
+    <a class="action" href="{{ url_for('blog.create') }}">New</a>
+  {% endif %}
 {% endblock %}
+

@@ -1,10 +1,8 @@
 import os
 import sys
 from flask import Flask
-from .views import db
-from .views import auth
-from .views import blog
 def create_app(test_config=None):
+    #print("creating an app...")
     #create and configure the app
     app = Flask(__name__,instance_relative_config=True)
     app.config.from_mapping(
@@ -28,11 +26,14 @@ def create_app(test_config=None):
     @app.route('/hello')
     def hello():
         return 'Hello'
-
+    from .views import db
     db.init_app(app)
-    #导入蓝图并注册
+    print("database inited....")
+    from .views import auth
     app.register_blueprint(auth.bp)
+    from .views import blog
+    #导入蓝图并注册
     app.register_blueprint(blog.bp)
     app.add_url_rule('/', endpoint='index')
-    
+    print("app created....")
     return app

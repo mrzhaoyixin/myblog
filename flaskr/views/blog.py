@@ -3,14 +3,12 @@ from flask import (
 )
 from werkzeug.exceptions import abort
 
-from flaskr.views.auth import login_required
-from flaskr.views.db import get_db
-
+from .auth import login_required
+from .db import get_db
+print("creating blueprint blog...")
 bp = Blueprint('blog', __name__)
-@bp.route('/pac')
-def pac():
-    return(render_template('static/mypac.pac'))
 @bp.route('/')
+@bp.route('/index')
 def index():
     db = get_db()
     posts = db.execute(
